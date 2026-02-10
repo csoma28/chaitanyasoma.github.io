@@ -745,13 +745,27 @@
       box-shadow: 0 20px 60px rgba(108, 99, 255, 0.1);
     }
     .interest-icon {
-      font-size: 2.5rem;
       margin-bottom: 1rem;
-      display: block;
-      transition: transform var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.12), rgba(0, 212, 170, 0.08));
+      transition: transform var(--transition), background var(--transition);
     }
     .interest-card:hover .interest-icon {
-      transform: scale(1.2) rotate(5deg);
+      transform: scale(1.15) rotate(5deg);
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.22), rgba(0, 212, 170, 0.15));
+    }
+    .interest-icon svg {
+      transition: transform var(--transition);
+    }
+    .interest-card:hover .interest-icon svg {
+      transform: scale(1.05);
     }
     .interest-name {
       font-family: 'Space Grotesk', sans-serif;
@@ -961,7 +975,7 @@
           financial services, and ESG advisory across Dubai and the UK.
         </p>
         <p>
-          I thrive at the intersection of data, strategy, and stakeholder engagement &mdash; whether it's designing
+          I thrive at the intersection of data, strategy, and stakeholder engagement - whether it's designing
           materiality assessment frameworks, building Tableau dashboards that unlock actionable insights, or
           streamlining investor communication strategies that cut production time in half.
         </p>
@@ -1006,7 +1020,7 @@
             <div>
               <div class="timeline-company">SAI Consultancies</div>
               <div class="timeline-role">Consulting Analyst Intern</div>
-              <div class="timeline-date">Feb 2025 &ndash; Jun 2025</div>
+              <div class="timeline-date">Feb 2025 - Jun 2025</div>
             </div>
             <span class="timeline-location">Dubai, UAE</span>
           </div>
@@ -1026,7 +1040,7 @@
             <div>
               <div class="timeline-company">Novia Financial PLC</div>
               <div class="timeline-role">Client Services Administrator</div>
-              <div class="timeline-date">Sep 2021 &ndash; Jul 2022</div>
+              <div class="timeline-date">Sep 2021 - Jul 2022</div>
             </div>
             <span class="timeline-location">Bath, UK</span>
           </div>
@@ -1044,7 +1058,7 @@
             <div>
               <div class="timeline-company">180 Degrees Consulting</div>
               <div class="timeline-role">Engagement Manager / Consultant</div>
-              <div class="timeline-date">Feb 2021 &ndash; Sep 2021</div>
+              <div class="timeline-date">Feb 2021 - Sep 2021</div>
             </div>
             <span class="timeline-location">Bath, UK</span>
           </div>
@@ -1064,7 +1078,7 @@
             <div>
               <div class="timeline-company">MCA Management Consultants</div>
               <div class="timeline-role">Audit Intern</div>
-              <div class="timeline-date">Jul 2018 &ndash; Aug 2018</div>
+              <div class="timeline-date">Jul 2018 - Aug 2018</div>
             </div>
             <span class="timeline-location">Dubai, UAE</span>
           </div>
@@ -1149,22 +1163,50 @@
     </div>
     <div class="interests-grid">
       <div class="interest-card reveal">
-        <span class="interest-icon" role="img" aria-label="Table Tennis">&#127955;</span>
+        <div class="interest-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6c63ff"/><stop offset="100%" stop-color="#00d4aa"/></linearGradient></defs>
+            <circle cx="10" cy="9" r="7"/>
+            <line x1="10" y1="16" x2="10" y2="22"/>
+            <line x1="8" y1="22" x2="12" y2="22"/>
+            <circle cx="19" cy="6" r="2.5" fill="rgba(108,99,255,0.2)"/>
+          </svg>
+        </div>
         <div class="interest-name">Table Tennis</div>
         <div class="interest-desc">Competitive player</div>
       </div>
       <div class="interest-card reveal">
-        <span class="interest-icon" role="img" aria-label="Books">&#128218;</span>
+        <div class="interest-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#g2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6c63ff"/><stop offset="100%" stop-color="#00d4aa"/></linearGradient></defs>
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </div>
         <div class="interest-name">Non-Fiction</div>
         <div class="interest-desc">Philosophy, autobiographies, psychology</div>
       </div>
       <div class="interest-card reveal">
-        <span class="interest-icon" role="img" aria-label="Racing">&#127946;</span>
+        <div class="interest-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#g3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6c63ff"/><stop offset="100%" stop-color="#ff6b9d"/></linearGradient></defs>
+            <path d="M5 17h14M3 17h18v-2a4 4 0 0 0-2.5-3.7L17 8H7L5.5 11.3A4 4 0 0 0 3 15v2z" fill="rgba(108,99,255,0.1)"/>
+            <circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>
+            <line x1="7" y1="8" x2="17" y2="8"/>
+          </svg>
+        </div>
         <div class="interest-name">Formula 1</div>
         <div class="interest-desc">Motorsport enthusiast</div>
       </div>
       <div class="interest-card reveal">
-        <span class="interest-icon" role="img" aria-label="Cricket">&#127951;</span>
+        <div class="interest-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#g4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs><linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4aa"/><stop offset="100%" stop-color="#6c63ff"/></linearGradient></defs>
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 2.5c1.5 3 1.5 6 0 9s-1.5 6 0 9"/>
+            <path d="M16 2.5c-1.5 3-1.5 6 0 9s1.5 6 0 9"/>
+          </svg>
+        </div>
         <div class="interest-name">Cricket</div>
         <div class="interest-desc">Lifelong follower</div>
       </div>
