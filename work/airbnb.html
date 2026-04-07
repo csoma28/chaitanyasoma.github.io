@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airbnb NYC Market Analysis | Chaitanya Kumar Soma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <nav class="topnav">
+    <a href="../index.html" class="nav-logo">CS</a>
+    <a href="../index.html#portfolio" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All Work
+    </a>
+  </nav>
+
+  <main class="wrap">
+    <div class="proj-tag fade-in">Exploratory Data Analysis</div>
+    <h1 class="proj-title fade-in d1">Airbnb NYC: An End-to-End Market Analysis</h1>
+    <div class="proj-client fade-in d2">New York Listings &bull; Public Dataset</div>
+    <p class="proj-lede fade-in d3">A complete EDA workflow on the New York Airbnb listings dataset &mdash; from raw, messy data to clean visual stories about who hosts where, what they charge, and how the five boroughs differ in availability, price, and review velocity.</p>
+
+    <div class="meta-strip fade-in d4">
+      <div class="meta-item"><div class="meta-label">Dataset</div><div class="meta-value">NYC Airbnb listings</div></div>
+      <div class="meta-item"><div class="meta-label">Scope</div><div class="meta-value">5 boroughs &bull; full year</div></div>
+      <div class="meta-item"><div class="meta-label">Method</div><div class="meta-value">Pandas EDA</div></div>
+      <div class="meta-item"><div class="meta-label">Stack</div><div class="meta-value">Python &bull; Seaborn</div></div>
+    </div>
+
+    <section class="section">
+      <div class="section-heading">Goal</div>
+      <h2>What does the NYC short-term rental market actually look like?</h2>
+      <p>Public Airbnb data is a great EDA playground because it's wide enough to hide real patterns but small enough to reason about end to end. The goal here was to take a realistically messy dataset and walk it through the full analytical pipeline &mdash; cleaning, profiling, visualising &mdash; without skipping any of the awkward middle steps.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Approach</div>
+      <h2>Five tasks, in order</h2>
+      <ul>
+        <li><strong>Initial exploration.</strong> Inspected shape, dtypes, and summary statistics. Used <code>describe(include='all')</code> to capture both numeric and categorical features in one pass.</li>
+        <li><strong>Data cleaning.</strong> Dropped null rows, removed duplicates, and re-cast IDs to object types so they wouldn't be misread as numerical features by any downstream model or chart.</li>
+        <li><strong>Feature analysis.</strong> Profiled price distributions across neighbourhood groups, room types, and host listing counts. Capped extreme outliers where they distorted the picture.</li>
+        <li><strong>Geographic patterning.</strong> Looked at how listing density and average price shift across the five boroughs &mdash; Manhattan and Brooklyn dominate volume, while pricing premiums concentrate in specific Manhattan neighbourhoods.</li>
+        <li><strong>Host behaviour.</strong> Surfaced the long tail of "professional" hosts (those running multiple listings) versus the casual single-listing hosts the platform was originally built for.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">What the Data Says</div>
+      <h2>Three observations worth flagging</h2>
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <div class="highlight-num">01</div>
+          <div class="highlight-text"><strong>Borough concentration.</strong> Manhattan and Brooklyn account for the lion's share of NYC listings; the outer boroughs are sparse.</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">02</div>
+          <div class="highlight-text"><strong>Price variance.</strong> Median prices look reasonable, but the right tail is enormous &mdash; a handful of listings skew the means heavily.</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">03</div>
+          <div class="highlight-text"><strong>Host professionalisation.</strong> A meaningful share of listings come from hosts managing 5+ properties &mdash; the platform is no longer purely peer-to-peer.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Lesson</div>
+      <h2>The unglamorous middle is where insight lives</h2>
+      <p>The most useful skill this project sharpened wasn't visualisation &mdash; it was the discipline of cleaning data without prematurely interpreting it. Every interesting insight at the end of the notebook was paid for by an unglamorous decision earlier on: which nulls to drop, which outliers to keep, which dtype to enforce.</p>
+      <div class="callout">"The above output displays the non-null count for each column, which gives us a good understanding of the degree to which our dataset needs to be clean &mdash; null values impair analysis." A note from the working notebook that became the running theme of the project.</div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Stack</div>
+      <div class="pill-row">
+        <span class="pill">Python</span>
+        <span class="pill">Pandas</span>
+        <span class="pill">NumPy</span>
+        <span class="pill">Matplotlib</span>
+        <span class="pill">Seaborn</span>
+        <span class="pill">Jupyter</span>
+        <span class="pill">EDA</span>
+      </div>
+    </section>
+
+    <nav class="next-nav">
+      <a href="fraud.html" class="next-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Previous: Fraud Detection
+      </a>
+      <a href="denarius.html" class="next-link primary">
+        Next: Denarius Portfolio
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>

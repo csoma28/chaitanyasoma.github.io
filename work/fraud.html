@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Card Fraud Detection &mdash; Logistic Regression | Chaitanya Kumar Soma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <nav class="topnav">
+    <a href="../index.html" class="nav-logo">CS</a>
+    <a href="../index.html#portfolio" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All Work
+    </a>
+  </nav>
+
+  <main class="wrap">
+    <div class="proj-tag fade-in">Machine Learning &bull; Classification</div>
+    <h1 class="proj-title fade-in d1">Credit Card Fraud Detection on a 0.17% Positive Class</h1>
+    <div class="proj-client fade-in d2">European Cardholders &bull; Public Dataset</div>
+    <p class="proj-lede fade-in d3">Fraud detection is a textbook imbalanced classification problem: 99.83% of transactions are legitimate, and a model that simply predicts "not fraud" for everything will hit 99.83% accuracy while missing every fraud. This project explores how under-sampling and a calibrated logistic regression baseline can do meaningful work on a stubborn dataset.</p>
+
+    <div class="meta-strip fade-in d4">
+      <div class="meta-item"><div class="meta-label">Dataset</div><div class="meta-value">European cardholder transactions</div></div>
+      <div class="meta-item"><div class="meta-label">Imbalance</div><div class="meta-value">492 fraud / 284K total</div></div>
+      <div class="meta-item"><div class="meta-label">Model</div><div class="meta-value">Logistic Regression</div></div>
+      <div class="meta-item"><div class="meta-label">Stack</div><div class="meta-value">scikit-learn</div></div>
+    </div>
+
+    <section class="section">
+      <div class="section-heading">The Core Challenge</div>
+      <h2>Why accuracy is the wrong metric</h2>
+      <p>The dataset contains roughly 284,000 transactions and only <strong>492 are fraud</strong>. A naive classifier that always says "legitimate" would still hit 99.83% accuracy. That's the trap: the metric looks great while the model is useless.</p>
+      <p>The real signal lives in precision and recall on the minority class. The work isn't building a fancier model &mdash; it's reshaping the training data so the model is forced to see fraud often enough to learn its structure.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Approach</div>
+      <h2>Under-sampling, not magic</h2>
+      <ul>
+        <li><strong>Exploratory profiling.</strong> Compared mean transaction amounts and feature distributions across the legitimate and fraudulent classes to confirm there is real signal to learn (fraud transactions tend to cluster differently in the PCA-derived feature space).</li>
+        <li><strong>Under-sampling.</strong> Built a balanced training sample by drawing 492 legitimate transactions to match the 492 fraud cases. This gives the model an even diet during training without synthetic data risks.</li>
+        <li><strong>Baseline classifier.</strong> Trained a logistic regression on the balanced sample. Logistic regression is the right starting point: interpretable coefficients, fast to train, easy to calibrate.</li>
+        <li><strong>Held-out evaluation.</strong> Tested on the original imbalanced distribution to see how the under-sampled model generalises to the real world.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">What I Learned</div>
+      <h2>The bias-variance trap of imbalance</h2>
+      <p>Under-sampling solves the training problem but introduces its own one: by throwing away legitimate transactions, you lose information about what "normal" looks like. The right next step would be to compare under-sampling against SMOTE (synthetic minority over-sampling) and class-weighted loss functions, then evaluate all three on precision-recall AUC rather than accuracy.</p>
+      <div class="callout">Working on this dataset hammered in a lesson that no textbook example ever quite teaches: the metric you optimise for shapes the model you get. Pick the wrong metric and you'll ship a model that brags about accuracy while missing every fraud.</div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Stack</div>
+      <div class="pill-row">
+        <span class="pill">Python</span>
+        <span class="pill">Pandas</span>
+        <span class="pill">NumPy</span>
+        <span class="pill">scikit-learn</span>
+        <span class="pill">Logistic Regression</span>
+        <span class="pill">Train/Test Split</span>
+        <span class="pill">Under-Sampling</span>
+        <span class="pill">Accuracy &amp; Confusion Matrix</span>
+      </div>
+    </section>
+
+    <nav class="next-nav">
+      <a href="rfm.html" class="next-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Previous: Customer RFM
+      </a>
+      <a href="airbnb.html" class="next-link primary">
+        Next: Airbnb NYC
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>

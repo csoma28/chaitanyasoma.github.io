@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer RFM Segmentation &mdash; KMeans Clustering | Chaitanya Kumar Soma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <nav class="topnav">
+    <a href="../index.html" class="nav-logo">CS</a>
+    <a href="../index.html#portfolio" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All Work
+    </a>
+  </nav>
+
+  <main class="wrap">
+    <div class="proj-tag fade-in">Analytics &bull; Unsupervised ML</div>
+    <h1 class="proj-title fade-in d1">Customer RFM Segmentation with KMeans</h1>
+    <div class="proj-client fade-in d2">UK Online Retail II Dataset &bull; 525,461 transactions</div>
+    <p class="proj-lede fade-in d3">A clustering project that turns a year of raw e-commerce transactions into actionable customer segments. By engineering Recency, Frequency, and Monetary value features and feeding them through KMeans, the analysis surfaces who the high-value customers are, who's drifting, and where retention spend should land.</p>
+
+    <div class="meta-strip fade-in d4">
+      <div class="meta-item"><div class="meta-label">Dataset</div><div class="meta-value">Online Retail II (UCI)</div></div>
+      <div class="meta-item"><div class="meta-label">Volume</div><div class="meta-value">525K rows / 4,383 customers</div></div>
+      <div class="meta-item"><div class="meta-label">Method</div><div class="meta-value">RFM + KMeans</div></div>
+      <div class="meta-item"><div class="meta-label">Stack</div><div class="meta-value">Python &bull; scikit-learn</div></div>
+    </div>
+
+    <section class="section">
+      <div class="section-heading">The Question</div>
+      <h2>Who actually drives the revenue?</h2>
+      <p>For most retailers, a small share of customers generates the majority of revenue &mdash; but identifying them requires more than a simple sales rank. RFM analysis adds two missing dimensions: how recently a customer purchased, and how often they come back. Together, these three signals describe loyalty, value, and risk in a way that flat sales data can't.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Approach</div>
+      <h2>From raw invoices to clean segments</h2>
+      <ul>
+        <li><strong>Data cleaning.</strong> Stripped cancelled invoices (those starting with "C"), bad-debt adjustments ("A" prefixes), null Customer IDs, and stock codes that didn't match the standard 5-digit pattern. About 20% of the rows were dropped to get a defensible analytical base.</li>
+        <li><strong>Feature engineering.</strong> Built three customer-level features: <strong>Recency</strong> (days since last purchase relative to a fixed reference date), <strong>Frequency</strong> (count of distinct invoices), and <strong>Monetary</strong> (sum of Quantity &times; Price across the year).</li>
+        <li><strong>Scaling.</strong> Applied StandardScaler so the magnitude difference between Frequency (single digits) and Monetary (thousands of pounds) wouldn't dominate the distance metric.</li>
+        <li><strong>Cluster selection.</strong> Used the elbow method on within-cluster sum of squares and silhouette scores to pick a stable number of clusters.</li>
+        <li><strong>Profiling.</strong> Labelled each cluster with a business-friendly name (Champions, Loyal, At-Risk, Hibernating) by reading mean RFM values.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">What the Segments Reveal</div>
+      <h2>Four behavioural archetypes</h2>
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <div class="highlight-num">Champions</div>
+          <div class="highlight-text">Recent, frequent, high-spend. Reward, retain, refer. The smallest group with the largest revenue share.</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">Loyal</div>
+          <div class="highlight-text">Frequent buyers with moderate basket size. Upsell candidates and brand advocates.</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">At-Risk</div>
+          <div class="highlight-text">High historical value but Recency drifting. Win-back campaigns earn back the most revenue here.</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">Hibernating</div>
+          <div class="highlight-text">Low across all three. Cheap to ignore, expensive to chase &mdash; deprioritise.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Why RFM</div>
+      <h2>Three numbers that explain a thousand customers</h2>
+      <p>RFM survives as a workhorse for a reason: it's interpretable, computationally cheap, and maps directly to marketing levers. Pairing it with KMeans turns the manual quantile cuts into data-driven groupings, and the silhouette scoring keeps the analyst honest about whether the clusters are real.</p>
+      <div class="callout">The lesson from this project wasn't that KMeans found magic groupings &mdash; it was that defensible features beat fancy models. RFM done well outperforms a neural network done lazily.</div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Stack</div>
+      <div class="pill-row">
+        <span class="pill">Python</span>
+        <span class="pill">Pandas</span>
+        <span class="pill">NumPy</span>
+        <span class="pill">scikit-learn</span>
+        <span class="pill">KMeans</span>
+        <span class="pill">StandardScaler</span>
+        <span class="pill">Silhouette Score</span>
+        <span class="pill">Matplotlib / Seaborn</span>
+      </div>
+    </section>
+
+    <nav class="next-nav">
+      <a href="esg.html" class="next-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Previous: ESG Materiality
+      </a>
+      <a href="fraud.html" class="next-link primary">
+        Next: Fraud Detection
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaleidoscope &mdash; Honda Research Institute | Chaitanya Kumar Soma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <nav class="topnav">
+    <a href="../index.html" class="nav-logo">CS</a>
+    <a href="../index.html#portfolio" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All Work
+    </a>
+  </nav>
+
+  <main class="wrap">
+    <div class="proj-tag fade-in">Capstone Project</div>
+    <h1 class="proj-title fade-in d1">Kaleidoscope: Engineering Real Variety in LLM Ideation</h1>
+    <div class="proj-client fade-in d2">Honda Research Institute USA</div>
+    <p class="proj-lede fade-in d3">When research teams use large language models for brainstorming, the systems repeatedly produce the same three ideas dressed in different words. Kaleidoscope is a system that measures, explains, and corrects this "false variety" so AI-assisted ideation actually expands the possibility space.</p>
+
+    <div class="meta-strip fade-in d4">
+      <div class="meta-item"><div class="meta-label">Sponsor</div><div class="meta-value">Honda Research Institute</div></div>
+      <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">Capstone Team Member</div></div>
+      <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">4 MSBA Students</div></div>
+      <div class="meta-item"><div class="meta-label">Timeline</div><div class="meta-value">Spring 2026 &bull; CMU MSBA</div></div>
+    </div>
+
+    <section class="section">
+      <div class="section-heading">The Problem</div>
+      <h2>Three ideas in different costumes</h2>
+      <p>Honda Research Institute's innovation teams kept hitting the same wall when prompting LLMs to brainstorm new mobility concepts. "AI assistant for drivers," "Smart co-pilot for cars," "Vehicle intelligence companion" &mdash; identical ideas, different vocabulary. The output looked diverse linguistically but represented one concept.</p>
+      <p>This creates a compounding cost: research time wasted evaluating duplicates, portfolios that look varied but aren't, and no shared definition of what "new" actually means.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Our Approach</div>
+      <h2>System designers, not model engineers</h2>
+      <p>Rather than train new models, we built a measurement and steering layer that sits on top of existing LLMs. The system has three connected components:</p>
+      <ul>
+        <li><strong>Idea representation.</strong> Encode generated ideas as embedding vectors plus structured attributes (user, context, problem type, technology lever) so they become comparable objects rather than free text.</li>
+        <li><strong>Similarity &amp; novelty scoring.</strong> Cosine-similarity thresholds calibrated against human judgment, paired with cluster-distance metrics, to distinguish duplicates from genuinely distinct ideas.</li>
+        <li><strong>Controlled generation.</strong> Prompt strategies, dimension forcing, and rejection sampling that push the model into under-explored regions of the idea space.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Workflow Options</div>
+      <h2>Three deliverable shapes, one core engine</h2>
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <div class="highlight-num">A</div>
+          <div class="highlight-text"><strong>Human Ideation Handbook.</strong> Engineers run a structured dimension framework; the tool validates novelty.</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">B</div>
+          <div class="highlight-text"><strong>Human + AI Workflow.</strong> Humans direct the AI through targeted prompts; the system scores and explains overlaps.</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">C</div>
+          <div class="highlight-text"><strong>Agentic AI Loop.</strong> An autonomous agent generates, embeds, scores, rejects, and iterates until the idea library is diverse.</div>
+        </div>
+      </div>
+      <p>The recommendation: deliver Option A as the methodology backbone and Option B as the automation layer on top &mdash; locking the framework first, then wiring the MVP demo.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Building Blocks</div>
+      <h2>Nine concrete engineering tasks</h2>
+      <ul>
+        <li><strong>Idea representation schema</strong> &mdash; semantic vectors plus structured fields defining what an "idea" is.</li>
+        <li><strong>Similarity score</strong> with calibrated thresholds (&gt;0.85 duplicate, 0.65&ndash;0.85 similar, &lt;0.45 distinct).</li>
+        <li><strong>Novelty score</strong> measuring distance to the nearest existing idea or cluster center.</li>
+        <li><strong>Idea clusters</strong> via k-means / hierarchical / density-based methods to label concept families.</li>
+        <li><strong>Repetition filter rule</strong> driving the agentic loop and the human review step.</li>
+        <li><strong>Diversity objective</strong> &mdash; pairwise similarity, cluster coverage, entropy, novelty rate.</li>
+        <li><strong>Explainability logic</strong> that surfaces <em>why</em> two ideas overlap in plain language.</li>
+        <li><strong>Exploration strategy</strong> for steering the system into under-populated regions.</li>
+        <li><strong>Evaluation framework</strong> proving the system actually improves ideation against baselines.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Why It Matters</div>
+      <h2>Turning ideation into a measurable capability</h2>
+      <p>For Honda Research Institute, the goal is to break out of repetitive ideation patterns and access genuinely diverse innovation directions across Honda's four research domains. The deliverable isn't a model &mdash; it's a working prototype, an open-source codebase, and a transferable framework that any team can apply to assess, refine, and expand AI-generated ideas.</p>
+      <div class="callout">"Final acceptance is based on clarity, usefulness, and explainability, not model accuracy alone."</div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">Stack</div>
+      <div class="pill-row">
+        <span class="pill">Python</span>
+        <span class="pill">Embeddings (OpenAI / Sentence Transformers)</span>
+        <span class="pill">scikit-learn</span>
+        <span class="pill">Cosine Similarity</span>
+        <span class="pill">KMeans &amp; Hierarchical Clustering</span>
+        <span class="pill">Prompt Engineering</span>
+        <span class="pill">Rejection Sampling</span>
+        <span class="pill">Streamlit (MVP)</span>
+      </div>
+    </section>
+
+    <nav class="next-nav">
+      <a href="../index.html#portfolio" class="next-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All Projects
+      </a>
+      <a href="esg.html" class="next-link primary">
+        Next: ESG Materiality
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>
